@@ -14,14 +14,21 @@ class Result extends Component {
             <img alt={this.props.result.title} src={posterUrl(this.props.result.poster_path)} />
           </div>
           <div className="col-12 col-md-9">
-            <h3>{this.props.result.title}</h3>
+            <div className="container">
+              <div className="row align-items-center">
+                <h3 className="col-12 col-md-9">{this.props.result.title}</h3>
+                <span className="col-12 col-md-3 badge badge-pill badge-success">Release Date: {this.props.result.release_date}</span>
+              </div>
+
+            </div>
+            <span className="badge badge-pill badge-warning">Popularity: {this.props.result.popularity}</span>
             {(this.props.result.overview) ? <Overview overview={this.props.result.overview}></Overview> : NO_OVERVIEW}
 
           </div>
         </div>
         <style jsx>{`
       .res {
-        margin: 15px 0;
+        margin: 20px 0;
       }
       h3{
         color: black;

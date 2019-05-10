@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Result from "./result.js";
 import PageBar from "./pageBar.js";
 import Trending from './trending.js';
+import Results from './results.js';
 
 const baseUrl = "https://api.themoviedb.org/3/search";
 const apiKey = "78c5519b461fad225a8634c75edb20b5";
@@ -35,26 +36,13 @@ class SearchBar extends Component {
             </div>
           </div>
         </form>
-        {(!this.state.result) ? <Trending></Trending> : ""}
-
-        {(this.state.result) ?
-          (this.state.result.results.map(result => (
-            <Result
-              result={result}
-              key={result.id}
-            />
-          ))) : ""
-        }
-        {(this.state.result) ?
-          <PageBar
-            totalPages={this.state.result.total_pages}
-            currPage={this.state.result.page}
-            searchPage={(page) => this.searchPage(page)}
-          ></PageBar>
+        {(!this.state.result) ?
+          <Trending></Trending>
           :
-          ""
-        }
-
+          <Results
+            results={this.state.result}
+            searchPage={(page) => this.searchPage(page)}>
+          </Results>}
       </div>
     );
   }

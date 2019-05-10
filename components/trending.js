@@ -17,7 +17,6 @@ class Trending extends Component {
     fetch(url)
       .then(result => result.json())
       .then(data => {
-        console.log(data.results);
         this.setState({ result: data.results });
       });
   }
