@@ -11,12 +11,15 @@ class PageBar extends Component {
     let currPage = this.props.currPage;
     let totalPages = this.props.totalPages;
     if (this.props.currPage !== prevProps.currPage) {
-      if (currPage > 3 && currPage < totalPages - 2) {
-        this.setState({ pageNum: [currPage - 2, currPage - 1, currPage, currPage + 1, currPage + 2] })
+      if (totalPages <= 5) {
+        let pageNum = Array.from({ length: totalPages }, (v, k) => k + 1);
+        this.setState({ pageNum });
+      } else if (currPage > 3 && currPage < totalPages - 2) {
+        this.setState({ pageNum: [currPage - 2, currPage - 1, currPage, currPage + 1, currPage + 2] });
       } else if (currPage >= totalPages - 2) {
-        this.setState({ pageNum: [totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages] })
+        this.setState({ pageNum: [totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages] });
       } else {
-        this.setState({ pageNum: [1, 2, 3, 4, 5] })
+        this.setState({ pageNum: [1, 2, 3, 4, 5] });
       }
     }
 
