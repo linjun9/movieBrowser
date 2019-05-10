@@ -11,7 +11,7 @@ class Result extends Component {
       <div className="container res">
         <div className="row align-items-center">
           <div className="col-12 col-md-3">
-            <img alt="Grandfather with child" src={posterUrl(this.props.result.poster_path)} />
+            <img alt={this.props.result.title} src={posterUrl(this.props.result.poster_path)} />
           </div>
           <div className="col-12 col-md-9">
             <h3>{this.props.result.title}</h3>
