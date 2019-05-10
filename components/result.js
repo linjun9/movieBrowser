@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Overview from './overview';
 const posterUrl = path => "https://image.tmdb.org/t/p/w154/" + path;
 const NO_OVERVIEW = "We don't find any overview for this movie.";
+const NO_RELEASE_DATE = "UNKNOWN";
 
 class Result extends Component {
 
@@ -17,11 +18,15 @@ class Result extends Component {
             <div className="container">
               <div className="row align-items-center">
                 <h3 className="col-12 col-md-9">{this.props.result.title}</h3>
-                <span className="col-12 col-md-3 badge badge-pill badge-success">Release Date: {this.props.result.release_date}</span>
+                <span className="col-12 col-md-3 badge badge-pill badge-success">
+                  Release Date: {(this.props.result.release_date) ? (this.props.result.release_date) : NO_RELEASE_DATE}</span>
               </div>
 
             </div>
-            <span className="badge badge-pill badge-warning">Popularity: {this.props.result.popularity}</span>
+            <div>
+              <span className="badge badge-pill badge-warning">Popularity: {this.props.result.popularity}</span>
+            </div>
+
             {(this.props.result.overview) ? <Overview overview={this.props.result.overview}></Overview> : NO_OVERVIEW}
 
           </div>
