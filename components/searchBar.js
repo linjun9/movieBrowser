@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Result from "./result.js";
-import PageBar from "./pageBar.js";
 import Trending from './trending.js';
 import Results from './results.js';
 
